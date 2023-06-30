@@ -6,7 +6,7 @@ export default function Nav() {
         <nav>
             <h1 className="title">AI Image Quote Generator</h1>
         </nav>
-        <h1 className="pholder">hi</h1>
+        {/* <h1 className="pholder">hi</h1> */}
         </>
     )
 }
