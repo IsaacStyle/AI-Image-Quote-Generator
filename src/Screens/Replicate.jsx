@@ -1,21 +1,19 @@
 import React from 'react'
 import { useState,useEffect } from 'react'
 import { Configuration, OpenAIApi } from "openai";
+import Replicate from "replicate";
 
-export default function Home() {
+export default function Home2() {
     const [ai,setAI] = useState()
-    const configuration = new Configuration({
-        apiKey: process.env.REACT_APP_OPENAI_API_KEY,
+    const replicate = new Replicate({
+        auth: process.env.REACT_APP_REPLICATE_API_TOKEN,
       });
-    const openai = new OpenAIApi(configuration);
+    const model = "stability-ai/stable-diffusion:db21e45d3f7023abc2a46ee38a23973f6dce16bb082a930b0c49861f96d1e5bf";
+    const input = { prompt: "an astronaut riding a horse on mars, hd, dramatic lighting, detailed" };
+    
     const completion = async() => {
-        const complete = await openai.createImage({
-            prompt: "A dog playing in the snow",
-            n: 1,
-            size: "512x512"
-    })
-      setAI(complete.data.data[0].url)
-      return complete.data.data[0].url
+        setAI(await replicate.run(model, { input }))
+        return ai
     }
     const handleClick = () => {
         completion()
