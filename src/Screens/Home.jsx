@@ -10,7 +10,7 @@ export default function Home() {
     const openai = new OpenAIApi(configuration);
     const completion = async() => {
         const complete = await openai.createImage({
-            prompt: "A dog playing in the snow",
+            prompt: `A snowy mountain with a flag above`,
             n: 1,
             size: "512x512"
     })
@@ -24,8 +24,9 @@ export default function Home() {
     },[])
 
     return(
-        <div><button onClick={handleClick}>Hello</button>
-        <div><img className='aiImage' src={ai} alt="hello" /></div>
+        <div>
+        <div><img className='aiImage' style={{border:'solid'}} src={ai} alt="hello" /></div>
+        <button onClick={handleClick}>Hello</button>
         </div>
     )
 
