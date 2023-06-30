@@ -5,6 +5,9 @@
 .aiImage {
   margin: 0 auto;
   background-position: center;
+  height: 512px;
+  width: 512px;
+  
 }
 nav {
   margin-top: 0;

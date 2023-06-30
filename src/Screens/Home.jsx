@@ -25,7 +25,7 @@ export default function Home() {
 
     return(
         <div>
-        <div><img className='aiImage' style={{border:'solid'}} src={ai} alt="hello" /></div>
+        <div><img className='aiImage' style={{border:'solid'}} src={ai || "https://i.gifer.com/3H9v.gif"} alt="hello" /></div>
         <button onClick={handleClick}>Hello</button>
         </div>
     )
