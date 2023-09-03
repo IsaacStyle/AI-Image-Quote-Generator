@@ -47,8 +47,6 @@ nav {
 }
 .createForm {
   display: flex;
-  align-self: center;
-  justify-self: center;
   flex-direction: column;
   width: 50%;
   margin: 0 auto;
@@ -62,4 +60,10 @@ nav {
 #button1 {
   width: 50%;
   margin: 0 auto
+}
+@media (max-width: 500px) {
+  .aiImage {
+    height: 256px;
+    width: 256px;
+  }
 }
