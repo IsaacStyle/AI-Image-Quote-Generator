@@ -17,7 +17,8 @@ export default function Home() {
       setAI(complete.data.data[0].url)
       return complete.data.data[0].url
     }
-    const handleClick = () => {
+    const handleClick = (e) => {
+        e.preventDefault();
         completion()
     }
     useEffect(() => {
@@ -25,8 +26,24 @@ export default function Home() {
 
     return(
         <div>
-        <div><img className='aiImage' style={{border:'solid'}} src={ai || "https://i.gifer.com/3H9v.gif"} alt="hello" /></div>
-        <button onClick={handleClick}>Hello</button>
+        <div className='imageBox'><img className='aiImage' style={{border:'solid'}} src={ai || "https://i.gifer.com/3H9v.gif"} alt="hello" /></div>
+        <form className='createForm' onSubmit={handleClick}>
+            <input
+            type="text"
+            className='inputs'
+            placeholder="Describe the image you would like to generate."
+            name="prompt"
+            // value={}
+            // onChange={handleChange}
+            />
+            <input
+            type="text"
+            className='inputs'
+            placeholder="What quote would you like?"
+            name="quote"
+            />
+            <button className='inputs' id='button1' type='submit'>Generate!</button>
+        </form>
         </div>
     )
 

@@ -7,8 +7,9 @@
   background-position: center;
   height: 512px;
   width: 512px;
-  
+  border-radius: 6px;
 }
+
 nav {
   margin-top: 0;
   margin: 0 auto;
@@ -35,6 +36,30 @@ nav {
   padding: 0;
   margin: 0;
   text-align: center;
-  font-size: 7vmin;
+  font-size: 4vmax;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.imageBox {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.createForm {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+  justify-content: center;
+}
+.inputs {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+#button1 {
+  width: 50%;
+  margin: 0 auto
 }
