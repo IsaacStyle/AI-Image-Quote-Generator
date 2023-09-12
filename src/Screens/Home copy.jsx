@@ -4,7 +4,7 @@ import { Configuration, OpenAIApi } from "openai";
 
 export default function Home2() {
     const canvasRef = useRef(null);
-    const [ai,setAI] = useState()
+    const [ai,setAI] = useState('')
     const [image, setImage] = useState();
     const [prompt2,setprompt2] = useState('')
     const [quote2,setQuote2] = useState('')
@@ -18,7 +18,7 @@ export default function Home2() {
             n: 1,
             size: "512x512"
     })
-      setAI(complete.data.data[0].url)
+      // setAI(complete.data.data[0].url)
       return complete.data.data[0].url
     }
 
@@ -26,11 +26,12 @@ export default function Home2() {
       e.preventDefault();
     
       // Assuming completion() is an async function, await it
-      await completion();
+      const ai2 = await completion();
     
       // Load the image from the 'ai' source
       const img = new Image();
-      img.src = ai;
+      img.src = ai2;
+      console.log(ai2)
       img.onload = () => {
         // Create a canvas element and get its 2D context
         const canvas = canvasRef.current;
@@ -50,7 +51,7 @@ export default function Home2() {
         
         // Convert the canvas to a data URL with JPEG format
         // const dataURL = canvas.toDataURL('image/jpeg');
-        console.log(img)
+        console.log(ai2)
     
         // Assuming 'setImage' is a function to set the image data URL, you should use it like this:
         // setImage(dataURL);
