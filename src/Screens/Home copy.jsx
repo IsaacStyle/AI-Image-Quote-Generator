@@ -1,10 +1,11 @@
 import React from 'react'
-import { useState,useEffect } from 'react'
+import { useState,useEffect,useRef } from 'react'
 import { Configuration, OpenAIApi } from "openai";
 
 export default function Home2() {
+    const canvasRef = useRef(null);
     const [ai,setAI] = useState()
-    const [image, setImage] = useState('');
+    const [image, setImage] = useState();
     const [prompt2,setprompt2] = useState('')
     const [quote2,setQuote2] = useState('')
     const configuration = new Configuration({
@@ -30,10 +31,9 @@ export default function Home2() {
       // Load the image from the 'ai' source
       const img = new Image();
       img.src = ai;
-      
       img.onload = () => {
         // Create a canvas element and get its 2D context
-        const canvas = document.createElement('canvas');
+        const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
         
         // Set canvas dimensions to match the image
@@ -49,12 +49,11 @@ export default function Home2() {
         context.fillText(quote2, 20, 40); // Adjust text position as needed
         
         // Convert the canvas to a data URL with JPEG format
-        const dataURL = canvas.toDataURL('image/jpeg');
+        // const dataURL = canvas.toDataURL('image/jpeg');
         console.log(img)
-        console.log(dataURL)
     
         // Assuming 'setImage' is a function to set the image data URL, you should use it like this:
-        setImage(dataURL);
+        // setImage(dataURL);
       };
     };
 
@@ -72,7 +71,8 @@ export default function Home2() {
     return(
         <div>
         <div className='imageBox'>
-          <img className='aiImage' style={{border:'solid'}} src={image || "https://i.gifer.com/3H9v.gif"} alt="hello" />
+          <canvas className='aiImage' style={{border:'solid'}} ref={canvasRef}  />
+          {/* <img className='aiImage' style={{border:'solid'}} src={image || "https://i.gifer.com/3H9v.gif"} alt="hello" /> */}
           {/* <p className='quote'></p> */}
         </div>
         <form className='createForm' onSubmit={handleClick}>
