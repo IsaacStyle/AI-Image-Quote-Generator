@@ -8,6 +8,7 @@
   height: 512px;
   width: 512px;
   border-radius: 6px;
+  object-fit: cover;
 }
 
 nav {
@@ -44,6 +45,15 @@ nav {
   margin: 0 auto;
   display: flex;
   justify-content: center;
+}
+.quote {
+  position: absolute;
+  top: 70%;
+  text-align: center;
+  overflow-wrap: normal;
+  height: 512px;
+  width: 512px;
+  color: aliceblue;
 }
 .createForm {
   display: flex;
